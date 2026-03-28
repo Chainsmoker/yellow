@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html class="dark" lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -1885,12 +1885,12 @@
             localStorage.setItem('theme', dark ? 'dark' : 'light');
         }
 
-        // Initialize theme from localStorage
+        // Initialize theme from localStorage (default: dark)
         const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            setTheme(true);
-        } else {
+        if (savedTheme === 'light') {
             setTheme(false);
+        } else {
+            setTheme(true);
         }
 
         themeToggle.addEventListener('click', () => {
