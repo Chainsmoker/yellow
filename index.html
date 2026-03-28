@@ -86,6 +86,7 @@
     <style>
         html {
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
 
         [id] {
@@ -445,24 +446,24 @@
 </head>
 
 <body
-    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
     <!-- Cursor Trail Canvas -->
     <canvas id="cursor-trail" class="fixed inset-0 pointer-events-none z-[9999]"></canvas>
     
     <!-- TopNavBar -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#131313]/60 backdrop-blur-lg shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
-        <div class="flex justify-between items-center px-8 py-5 max-w-[1440px] mx-auto">
-            <a href="#" class="flex items-center">
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#131313]/60 backdrop-blur-lg shadow-[0_20px_40px_rgba(0,0,0,0.4)]" style="max-width:100vw;overflow-x:hidden;">
+        <div class="flex justify-between items-center px-3 md:px-8 py-3 md:py-5 max-w-[1440px] mx-auto" style="max-width:100%;">
+            <a href="#" class="flex items-center flex-shrink-0">
                  <img src="logo.png" alt="Yellow Digital" class="h-8 md:h-10 w-auto object-contain">
             </a>
             <div class="hidden md:flex gap-10 items-center font-['Inter'] font-medium text-sm tracking-wide">
                 <a class="text-[#FFDF39] border-b-2 border-[#FFDF39] pb-1" href="#services">Servicios</a>
-                <a class="text-zinc-400 hover:text-white transition-colors" href="#why-us">¿Por Qué Nosotros?</a>
-                <a class="text-zinc-400 hover:text-white transition-colors" href="#process">Proceso</a>
-                <a class="text-zinc-400 hover:text-white transition-colors" href="#contact">Contacto</a>
+                <a class="text-zinc-400" href="#why-us">¿Por Qué Nosotros?</a>
+                <a class="text-zinc-400" href="#process">Proceso</a>
+                <a class="text-zinc-400" href="#contact">Contacto</a>
             </div>
             <a href="#contact"
-                class="bg-primary-container text-on-primary font-label font-bold text-xs uppercase tracking-widest px-8 py-3 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 inline-block">
+                class="bg-primary-container text-on-primary font-label font-bold text-[10px] md:text-xs uppercase tracking-wider px-4 md:px-6 py-2 md:py-3 rounded-full whitespace-nowrap flex-shrink-0">
                 Iniciar Proyecto
             </a>
         </div>
@@ -471,7 +472,7 @@
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
             <!-- Decorative Lines -->
-            <svg class="absolute inset-0 w-full h-full z-[5] pointer-events-none overflow-visible" preserveAspectRatio="none">
+            <svg class="absolute inset-0 w-full h-full z-[5] pointer-events-none overflow-hidden" preserveAspectRatio="none">
                 <line class="hero-line hero-line-1" x1="0%" y1="30%" x2="0%" y2="30%" stroke="#FFDF39" stroke-width="1"/>
                 <line class="hero-line hero-line-2" x1="100%" y1="70%" x2="100%" y2="70%" stroke="#FFDF39" stroke-width="1"/>
                 <circle class="hero-circle" cx="50%" cy="50%" r="0" fill="none" stroke="#FFDF39" stroke-width="1" opacity="0.3"/>
@@ -798,7 +799,7 @@
             
             <div class="timeline-container relative max-w-6xl mx-auto">
                 <!-- Vertical Line (centered) -->
-                <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 hidden md:block" id="timeline-progress"></div>
+                <div class="timeline-line absolute left-1/2 transform -translate-x-1/2 block" id="timeline-progress"></div>
                 
                 <!-- Steps -->
                 <div class="space-y-12 md:space-y-16 lg:space-y-24">
@@ -1502,17 +1503,21 @@
                 }
             );
             
+            const isMobile = window.innerWidth < 768;
+
             timelineCards.forEach((card, index) => {
                 const isLeft = index % 2 === 0;
-                const xStart = isLeft ? -100 : 100;
-                
+                const xStart = isMobile ? 0 : (isLeft ? -100 : 100);
+
                 gsap.fromTo(card,
-                    { 
-                        x: xStart, 
-                        opacity: 0 
+                    {
+                        x: xStart,
+                        y: isMobile ? 40 : 0,
+                        opacity: 0
                     },
                     {
                         x: 0,
+                        y: 0,
                         opacity: 1,
                         duration: 0.8,
                         ease: 'power2.out',
