@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en">
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -25,53 +25,53 @@
             theme: {
                 extend: {
                     colors: {
-                        "surface-container": "#1f1f1f",
-                        "surface-tint": "#e4c51a",
-                        "secondary-fixed": "#e5e2e1",
-                        "tertiary-fixed-dim": "#c6c6c7",
-                        "inverse-surface": "#e2e2e2",
-                        "surface-dim": "#131313",
-                        "on-secondary-fixed-variant": "#474646",
-                        "surface-container-high": "#2a2a2a",
-                        "surface-container-highest": "#353535",
-                        "inverse-primary": "#6e5e00",
-                        "on-error": "#690005",
-                        "on-tertiary-fixed": "#1a1c1c",
-                        "inverse-on-surface": "#303030",
-                        "outline-variant": "#4c4733",
-                        "secondary": "#c9c6c5",
-                        "secondary-container": "#474646",
-                        "surface-container-low": "#1b1b1b",
-                        "surface-bright": "#393939",
-                        "on-primary": "#393000",
-                        "primary-fixed-dim": "#e4c51a",
-                        "primary": "#fffbff",
-                        "primary-fixed": "#ffe256",
-                        "surface-variant": "#353535",
-                        "on-surface-variant": "#cfc6ac",
-                        "on-primary-container": "#736200",
-                        "on-surface": "#e2e2e2",
-                        "on-secondary": "#313030",
-                        "on-tertiary": "#2f3131",
-                        "on-primary-fixed": "#211b00",
-                        "background": "#131313",
-                        "on-primary-fixed-variant": "#534600",
-                        "error-container": "#93000a",
-                        "surface": "#131313",
-                        "on-error-container": "#ffdad6",
-                        "secondary-fixed-dim": "#c9c6c5",
-                        "on-tertiary-fixed-variant": "#454747",
-                        "on-background": "#e2e2e2",
-                        "tertiary-fixed": "#e2e2e2",
-                        "on-secondary-container": "#b7b4b4",
-                        "on-tertiary-container": "#616363",
+                        "surface-container": "var(--surface-container)",
+                        "surface-tint": "var(--surface-tint)",
+                        "surface-container-high": "var(--surface-container-high)",
+                        "surface-container-highest": "var(--surface-container-highest)",
+                        "surface-container-low": "var(--surface-container-low)",
+                        "surface-container-lowest": "var(--surface-container-lowest)",
+                        "surface-bright": "var(--surface-bright)",
+                        "surface-dim": "var(--surface-dim)",
+                        "surface-variant": "var(--surface-variant)",
+                        "outline-variant": "var(--outline-variant)",
+                        "outline": "var(--outline)",
+                        "secondary": "var(--secondary)",
+                        "secondary-container": "var(--secondary-container)",
+                        "on-surface": "var(--on-surface)",
+                        "on-surface-variant": "var(--on-surface-variant)",
+                        "on-background": "var(--on-background)",
+                        "on-secondary-container": "var(--on-secondary-container)",
+                        "on-primary": "var(--on-primary)",
+                        "on-primary-container": "var(--on-primary-container)",
+                        "primary": "var(--primary)",
                         "primary-container": "#ffdf39",
-                        "outline": "#989179",
-                        "tertiary-container": "#e0e0e0",
-                        "surface-container-lowest": "#0e0e0e",
-                        "tertiary": "#fcfcfc",
-                        "error": "#ffb4ab",
-                        "on-secondary-fixed": "#1c1b1b"
+                        "primary-fixed": "var(--primary-fixed)",
+                        "primary-fixed-dim": "var(--primary-fixed-dim)",
+                        "background": "var(--background)",
+                        "surface": "var(--surface)",
+                        "inverse-surface": "var(--inverse-surface)",
+                        "inverse-on-surface": "var(--inverse-on-surface)",
+                        "error": "var(--error)",
+                        "error-container": "var(--error-container)",
+                        "on-error": "var(--on-error)",
+                        "on-error-container": "var(--on-error-container)",
+                        "on-secondary": "var(--on-secondary)",
+                        "on-tertiary": "var(--on-tertiary)",
+                        "tertiary": "var(--tertiary)",
+                        "tertiary-container": "var(--tertiary-container)",
+                        "on-tertiary-container": "var(--on-tertiary-container)",
+                        "on-primary-fixed": "#211b00",
+                        "on-primary-fixed-variant": "#534600",
+                        "secondary-fixed": "var(--secondary-fixed)",
+                        "secondary-fixed-dim": "var(--secondary-fixed-dim)",
+                        "tertiary-fixed": "var(--tertiary-fixed)",
+                        "tertiary-fixed-dim": "var(--tertiary-fixed-dim)",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-secondary-fixed-variant": "var(--on-secondary-fixed-variant)",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "inverse-primary": "var(--inverse-primary)"
                     },
                     fontFamily: {
                         "headline": ["Inter"],
@@ -84,6 +84,141 @@
         }
     </script>
     <style>
+        /* Light theme (default) */
+        :root {
+            --background: #ffffff;
+            --surface: #ffffff;
+            --surface-container: #f0f0f0;
+            --surface-container-high: #e8e8e8;
+            --surface-container-highest: #e0e0e0;
+            --surface-container-low: #f5f5f5;
+            --surface-container-lowest: #ffffff;
+            --surface-bright: #ffffff;
+            --surface-dim: #dedede;
+            --surface-variant: #e8e8e8;
+            --surface-tint: #c9a800;
+            --on-surface: #1a1a1a;
+            --on-surface-variant: #4a4530;
+            --on-background: #1a1a1a;
+            --primary: #1a1a1a;
+            --primary-fixed: #c9a800;
+            --primary-fixed-dim: #c9a800;
+            --on-primary: #393000;
+            --on-primary-container: #736200;
+            --secondary: #1a1a1a;
+            --secondary-container: #e8e8e8;
+            --secondary-fixed: #2a2a2a;
+            --secondary-fixed-dim: #4a4a4a;
+            --on-secondary: #f0f0f0;
+            --on-secondary-container: #3a3a3a;
+            --on-secondary-fixed-variant: #6a6a6a;
+            --tertiary: #1a1a1a;
+            --tertiary-container: #e0e0e0;
+            --tertiary-fixed: #2a2a2a;
+            --tertiary-fixed-dim: #4a4a4a;
+            --on-tertiary: #f0f0f0;
+            --on-tertiary-container: #616363;
+            --outline: #5a5340;
+            --outline-variant: #c8c0a0;
+            --inverse-surface: #303030;
+            --inverse-on-surface: #e2e2e2;
+            --inverse-primary: #ffdf39;
+            --error: #ba1a1a;
+            --error-container: #ffdad6;
+            --on-error: #ffffff;
+            --on-error-container: #93000a;
+            --nav-bg: rgba(255, 255, 255, 0.8);
+            --nav-shadow: rgba(0, 0, 0, 0.08);
+            --card-bg: rgba(240, 240, 240, 0.8);
+            --card-border: rgba(200, 192, 160, 0.3);
+            --text-outline-color: #5a5340;
+            --accent-hover: #b89900;
+            --form-focus-bg: rgba(232, 232, 232, 0.8);
+            --partner-hover-bg: rgba(220, 220, 220, 0.8);
+            --hero-overlay: rgba(255, 255, 255, 0.4);
+            --img-shadow: rgba(0, 0, 0, 0.15);
+            --client-name-color: #1a1a1a;
+            --particle-lightness: 50%;
+            --particle-lightness-mid: 40%;
+            --particle-lightness-core: 45%;
+        }
+
+        /* Dark theme */
+        .dark {
+            --background: #131313;
+            --surface: #131313;
+            --surface-container: #1f1f1f;
+            --surface-container-high: #2a2a2a;
+            --surface-container-highest: #353535;
+            --surface-container-low: #1b1b1b;
+            --surface-container-lowest: #0e0e0e;
+            --surface-bright: #393939;
+            --surface-dim: #131313;
+            --surface-variant: #353535;
+            --surface-tint: #e4c51a;
+            --on-surface: #e2e2e2;
+            --on-surface-variant: #cfc6ac;
+            --on-background: #e2e2e2;
+            --primary: #fffbff;
+            --primary-fixed: #ffe256;
+            --primary-fixed-dim: #e4c51a;
+            --on-primary: #393000;
+            --on-primary-container: #736200;
+            --secondary: #c9c6c5;
+            --secondary-container: #474646;
+            --secondary-fixed: #e5e2e1;
+            --secondary-fixed-dim: #c9c6c5;
+            --on-secondary: #313030;
+            --on-secondary-container: #b7b4b4;
+            --on-secondary-fixed-variant: #474646;
+            --tertiary: #fcfcfc;
+            --tertiary-container: #e0e0e0;
+            --tertiary-fixed: #e2e2e2;
+            --tertiary-fixed-dim: #c6c6c7;
+            --on-tertiary: #2f3131;
+            --on-tertiary-container: #616363;
+            --outline: #989179;
+            --outline-variant: #4c4733;
+            --inverse-surface: #e2e2e2;
+            --inverse-on-surface: #303030;
+            --inverse-primary: #6e5e00;
+            --error: #ffb4ab;
+            --error-container: #93000a;
+            --on-error: #690005;
+            --on-error-container: #ffdad6;
+            --nav-bg: rgba(19, 19, 19, 0.6);
+            --nav-shadow: rgba(0, 0, 0, 0.4);
+            --card-bg: rgba(31, 31, 31, 0.6);
+            --card-border: rgba(152, 145, 121, 0.1);
+            --text-outline-color: #989179;
+            --accent-hover: #FFDF39;
+            --form-focus-bg: rgba(31, 31, 31, 0.8);
+            --partner-hover-bg: rgba(50, 50, 50, 0.8);
+            --hero-overlay: rgba(0, 0, 0, 0.4);
+            --img-shadow: rgba(0, 0, 0, 0.5);
+            --client-name-color: #e2e2e2;
+            --particle-lightness: 70%;
+            --particle-lightness-mid: 50%;
+            --particle-lightness-core: 90%;
+        }
+
+        html {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body, .theme-nav, .client-card, .service-card, .stat-item, footer {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .theme-nav {
+            background: var(--nav-bg);
+            box-shadow: 0 4px 20px var(--nav-shadow);
+        }
+
+        .hero-overlay {
+            background: var(--hero-overlay);
+        }
+
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
@@ -99,7 +234,7 @@
         }
 
         .text-outline {
-            -webkit-text-stroke: 1px #989179;
+            -webkit-text-stroke: 1px var(--text-outline-color);
             color: transparent;
         }
 
@@ -135,7 +270,7 @@
 
         .marquee-item:hover {
             -webkit-text-stroke: 0px;
-            color: #FFDF39;
+            color: var(--accent-hover);
         }
 
         .marquee-separator {
@@ -157,7 +292,7 @@
 
         .stat-item:hover {
             transform: translateY(-4px);
-            box-shadow: 0 10px 30px rgba(255, 223, 57, 0.1);
+            box-shadow: 0 10px 30px rgba(255, 223, 57, 0.2);
         }
 
         .stat-number {
@@ -178,7 +313,7 @@
         }
 
         .partners-section > div:hover > div:first-child {
-            background: rgba(50, 50, 50, 0.8) !important;
+            background: var(--partner-hover-bg) !important;
         }
 
         #cursor-trail {
@@ -260,9 +395,9 @@
 
         .client-card {
             flex-shrink: 0;
-            background: rgba(31, 31, 31, 0.6);
+            background: var(--card-bg);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(152, 145, 121, 0.1);
+            border: 1px solid var(--card-border);
             border-radius: 1rem;
             padding: 1.5rem 2.5rem;
             min-width: 200px;
@@ -272,22 +407,22 @@
         }
 
         .client-card:hover {
-            background: rgba(255, 223, 57, 0.1);
-            border-color: rgba(255, 223, 57, 0.3);
+            background: rgba(255, 223, 57, 0.15);
+            border-color: rgba(255, 223, 57, 0.4);
             transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(255, 223, 57, 0.1);
+            box-shadow: 0 0 30px rgba(255, 223, 57, 0.15);
         }
 
         .client-name {
             font-family: 'Manrope', sans-serif;
             font-weight: 600;
             font-size: 1rem;
-            color: #e2e2e2;
+            color: var(--client-name-color);
             letter-spacing: 0.05em;
         }
 
         .client-card:hover .client-name {
-            color: #FFDF39;
+            color: var(--accent-hover);
         }
 
         @keyframes marquee-left {
@@ -313,7 +448,7 @@
         }
 
         .contact-image-wrapper img {
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 25px 50px -12px var(--img-shadow);
         }
 
         .form-group input,
@@ -325,11 +460,11 @@
         .form-group input:focus,
         .form-group select:focus,
         .form-group textarea:focus {
-            background: rgba(31, 31, 31, 0.8);
+            background: var(--form-focus-bg);
         }
 
         select {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFDF39' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23c9a800' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: right 1rem center;
             background-size: 1.5rem;
@@ -451,21 +586,28 @@
     <canvas id="cursor-trail" class="fixed inset-0 pointer-events-none z-[9999]"></canvas>
     
     <!-- TopNavBar -->
-    <nav class="fixed top-0 left-0 w-full z-50 bg-[#131313]/60 backdrop-blur-lg shadow-[0_20px_40px_rgba(0,0,0,0.4)]" style="max-width:100vw;overflow-x:hidden;">
+    <nav class="fixed top-0 left-0 w-full z-50 backdrop-blur-lg theme-nav" style="max-width:100vw;overflow-x:hidden;">
         <div class="flex justify-between items-center px-3 md:px-8 py-3 md:py-5 max-w-[1440px] mx-auto" style="max-width:100%;">
             <a href="#" class="flex items-center flex-shrink-0">
-                 <img src="logo.png" alt="Yellow Digital" class="h-8 md:h-10 w-auto object-contain">
+                 <img src="logo-dark.png" alt="Yellow Digital" class="h-8 md:h-10 w-auto object-contain logo-light">
+                 <img src="logo.png" alt="Yellow Digital" class="h-8 md:h-10 w-auto object-contain logo-dark hidden">
             </a>
             <div class="hidden md:flex gap-10 items-center font-['Inter'] font-medium text-sm tracking-wide">
-                <a class="text-[#FFDF39] border-b-2 border-[#FFDF39] pb-1" href="#services">Servicios</a>
-                <a class="text-zinc-400" href="#why-us">¿Por Qué Nosotros?</a>
-                <a class="text-zinc-400" href="#process">Proceso</a>
-                <a class="text-zinc-400" href="#contact">Contacto</a>
+                <a class="text-primary-fixed border-b-2 border-[#c9a800] pb-1" href="#services">Servicios</a>
+                <a class="text-on-surface" href="#why-us">¿Por Qué Nosotros?</a>
+                <a class="text-on-surface" href="#process">Proceso</a>
+                <a class="text-on-surface" href="#contact">Contacto</a>
             </div>
-            <a href="#contact"
-                class="bg-primary-container text-on-primary font-label font-bold text-[10px] md:text-xs uppercase tracking-wider px-4 md:px-6 py-2 md:py-3 rounded-full whitespace-nowrap flex-shrink-0">
-                Iniciar Proyecto
-            </a>
+            <div class="flex items-center gap-3">
+                <button id="theme-toggle" class="w-9 h-9 md:w-10 md:h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface transition-all hover:bg-surface-container" aria-label="Cambiar tema">
+                    <span class="material-symbols-outlined text-lg theme-icon-light">light_mode</span>
+                    <span class="material-symbols-outlined text-lg theme-icon-dark hidden">dark_mode</span>
+                </button>
+                <a href="#contact"
+                    class="bg-primary-container text-on-primary font-label font-bold text-[10px] md:text-xs uppercase tracking-wider px-4 md:px-6 py-2 md:py-3 rounded-full whitespace-nowrap flex-shrink-0">
+                    Iniciar Proyecto
+                </a>
+            </div>
         </div>
     </nav>
     <main>
@@ -487,7 +629,7 @@
                 <img class="w-full h-full object-cover opacity-60 hero-bg-img grayscale"
                     src="bg.png"
                     alt="Yellow Digital Background" />
-                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="absolute inset-0 hero-overlay"></div>
                 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/40"></div>
             </div>
             <div class="relative z-10 max-w-[1440px] px-8 text-center">
@@ -504,64 +646,64 @@
                         Trabajemos Juntos
                     </a>
                     <button
-                        class="bg-surface-variant/20 backdrop-blur-xl border border-outline-variant/15 text-on-surface font-label font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-full hero-btn hero-btn-2">
+                        class="bg-surface-variant backdrop-blur-xl border border-outline-variant text-on-surface font-label font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-full hero-btn hero-btn-2">
                         Ver Portafolio
                     </button>
                 </div>
             </div>
         </section>
         <!-- Kinetic Marquee - Infinite Slider -->
-        <div class="bg-surface-container-low py-12 overflow-hidden border-y border-outline-variant/10">
+        <div class="bg-surface-container-low py-12 overflow-hidden border-y border-outline-variant">
             <div class="infinite-marquee">
                 <div class="marquee-track">
                     <!-- First set -->
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Social
                         Media</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Web
                         Development</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Digital
                         Ads</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">UGC
                         Content</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Brand
                         Strategy</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <!-- Second set (duplicate for infinite loop) -->
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Social
                         Media</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Web
                         Development</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Digital
                         Ads</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">UGC
                         Content</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Brand
                         Strategy</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <!-- Third set for smooth transition -->
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Social
                         Media</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Web
                         Development</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Digital
                         Ads</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">UGC
                         Content</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                     <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Brand
                         Strategy</span>
-                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-separator text-outline-variant text-5xl md:text-7xl font-black uppercase font-headline">/</span>
                 </div>
             </div>
         </div>
@@ -586,15 +728,15 @@
                     
                     <!-- Right: Stats -->
                     <div class="grid grid-cols-3 gap-4 lg:gap-8">
-                        <div class="stat-item text-center p-4 lg:p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/10">
+                        <div class="stat-item text-center p-4 lg:p-6 bg-surface-container rounded-2xl border border-outline-variant">
                             <div class="font-headline text-3xl md:text-5xl lg:text-6xl font-black text-primary-container mb-2 stat-number" data-target="50">0</div>
                             <div class="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary">Proyectos</div>
                         </div>
-                        <div class="stat-item text-center p-4 lg:p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/10">
+                        <div class="stat-item text-center p-4 lg:p-6 bg-surface-container rounded-2xl border border-outline-variant">
                             <div class="font-headline text-3xl md:text-5xl lg:text-6xl font-black text-primary-container mb-2 stat-number" data-target="30">0</div>
                             <div class="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary">Clientes</div>
                         </div>
-                        <div class="stat-item text-center p-4 lg:p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/10">
+                        <div class="stat-item text-center p-4 lg:p-6 bg-surface-container rounded-2xl border border-outline-variant">
                             <div class="font-headline text-3xl md:text-5xl lg:text-6xl font-black text-primary-container mb-2 stat-number" data-target="3">0</div>
                             <div class="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary">Años</div>
                         </div>
@@ -602,7 +744,7 @@
                 </div>
 
                 <!-- Team & Partners -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-8 lg:pt-12 border-t border-outline-variant/10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center pt-8 lg:pt-12 border-t border-outline-variant">
                     <!-- Team -->
                     <div class="team-section flex flex-col sm:flex-row items-center gap-4 lg:gap-6">
                         <div class="flex -space-x-3 lg:-space-x-4">
@@ -623,14 +765,14 @@
                     <!-- Partners -->
                     <div class="partners-section flex flex-col sm:flex-row items-center justify-center lg:justify-end gap-4 lg:gap-8 mt-6 lg:mt-0">
                         <div class="flex items-center gap-2 lg:gap-3">
-                            <div class="h-8 lg:h-10 w-24 lg:w-[120px] bg-surface-container-high/50 rounded-lg flex items-center justify-center">
-                                <span class="font-headline font-bold text-sm lg:text-lg text-white">Google</span>
+                            <div class="h-8 lg:h-10 w-24 lg:w-[120px] bg-surface-container-high rounded-lg flex items-center justify-center">
+                                <span class="font-headline font-bold text-sm lg:text-lg text-on-surface">Google</span>
                             </div>
                             <span class="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary">Partner</span>
                         </div>
                         <div class="flex items-center gap-2 lg:gap-3">
-                            <div class="h-8 lg:h-10 w-20 lg:w-[100px] bg-surface-container-high/50 rounded-lg flex items-center justify-center">
-                                <span class="font-headline font-bold text-sm lg:text-lg text-white">Meta</span>
+                            <div class="h-8 lg:h-10 w-20 lg:w-[100px] bg-surface-container-high rounded-lg flex items-center justify-center">
+                                <span class="font-headline font-bold text-sm lg:text-lg text-on-surface">Meta</span>
                             </div>
                             <span class="font-label text-[10px] lg:text-xs uppercase tracking-widest text-secondary">Partner</span>
                         </div>
@@ -654,7 +796,7 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
                 <!-- Card 1 -->
-                <div class="service-card p-6 lg:p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                <div class="service-card p-6 lg:p-8 bg-surface-container backdrop-blur-xl rounded-xl border border-outline-variant">
                     <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary-container rounded-lg flex items-center justify-center mb-6 lg:mb-10">
                         <span class="material-symbols-outlined text-on-primary text-xl lg:text-2xl" data-icon="share">share</span>
                     </div>
@@ -668,7 +810,7 @@
                     </a>
                 </div>
                 <!-- Card 2 -->
-                <div class="service-card p-6 lg:p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                <div class="service-card p-6 lg:p-8 bg-surface-container backdrop-blur-xl rounded-xl border border-outline-variant">
                     <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary-container rounded-lg flex items-center justify-center mb-6 lg:mb-10">
                         <span class="material-symbols-outlined text-on-primary text-xl lg:text-2xl" data-icon="code">code</span>
                     </div>
@@ -682,7 +824,7 @@
                     </a>
                 </div>
                 <!-- Card 3 -->
-                <div class="service-card p-6 lg:p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                <div class="service-card p-6 lg:p-8 bg-surface-container backdrop-blur-xl rounded-xl border border-outline-variant">
                     <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary-container rounded-lg flex items-center justify-center mb-6 lg:mb-10">
                         <span class="material-symbols-outlined text-on-primary text-xl lg:text-2xl"
                             data-icon="ads_click">ads_click</span>
@@ -697,7 +839,7 @@
                     </a>
                 </div>
                 <!-- Card 4 -->
-                <div class="service-card p-6 lg:p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                <div class="service-card p-6 lg:p-8 bg-surface-container backdrop-blur-xl rounded-xl border border-outline-variant">
                     <div class="w-10 h-10 lg:w-12 lg:h-12 bg-primary-container rounded-lg flex items-center justify-center mb-6 lg:mb-10">
                         <span class="material-symbols-outlined text-on-primary text-xl lg:text-2xl"
                             data-icon="video_camera_front">video_camera_front</span>
@@ -731,7 +873,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-headline text-lg lg:text-xl font-bold mb-2">Crecer en Ventas</h4>
-                                    <p class="text-zinc-500 text-sm lg:text-base">Aumenta tus ingresos con estrategias de marketing digital diseñadas para convertir visitantes en clientes.</p>
+                                    <p class="text-on-surface text-sm lg:text-base">Aumenta tus ingresos con estrategias de marketing digital diseñadas para convertir visitantes en clientes.</p>
                                 </div>
                             </div>
                             <div class="why-us-item flex gap-4 lg:gap-6 items-start">
@@ -741,7 +883,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-headline text-lg lg:text-xl font-bold mb-2">Aumentar Seguidores</h4>
-                                    <p class="text-zinc-500 text-sm lg:text-base">Construye una comunidad engaged en redes sociales que crezca orgánicamente y se convierta en tu mejor embajadora.
+                                    <p class="text-on-surface text-sm lg:text-base">Construye una comunidad engaged en redes sociales que crezca orgánicamente y se convierta en tu mejor embajadora.
                                     </p>
                                 </div>
                             </div>
@@ -752,7 +894,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-headline text-lg lg:text-xl font-bold mb-2">Mayor Posicionamiento</h4>
-                                    <p class="text-zinc-500 text-sm lg:text-base">Posiciona tu marca como líder en tu industria con una identidad digital sólida y consistente.
+                                    <p class="text-on-surface text-sm lg:text-base">Posiciona tu marca como líder en tu industria con una identidad digital sólida y consistente.
                                     </p>
                                 </div>
                             </div>
@@ -811,7 +953,7 @@
                         </div>
                         <!-- Card - Left -->
                         <div class="md:w-5/12 md:mr-auto md:pr-16 pt-16 md:pt-0 pl-8 md:pl-0">
-                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-6 lg:p-8">
+                            <div class="bg-surface-container backdrop-blur-xl rounded-2xl border border-outline-variant p-6 lg:p-8">
                                 <h4 class="font-headline text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-on-surface">Análisis</h4>
                                 <p class="text-secondary text-sm lg:text-base leading-relaxed">Inmersión profunda en tendencias de mercado, comportamiento de audiencia y auditorías de marca para construir una estrategia sólida.</p>
                             </div>
@@ -826,7 +968,7 @@
                         </div>
                         <!-- Card - Right -->
                         <div class="md:w-5/12 md:ml-auto md:pl-16 pt-16 md:pt-0 pr-8 md:pr-0">
-                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-6 lg:p-8">
+                            <div class="bg-surface-container backdrop-blur-xl rounded-2xl border border-outline-variant p-6 lg:p-8">
                                 <h4 class="font-headline text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-on-surface">Implementación</h4>
                                 <p class="text-secondary text-sm lg:text-base leading-relaxed">Ejecución precisa en todos los puntos de contacto digitales y plataformas con atención al detalle.</p>
                             </div>
@@ -841,7 +983,7 @@
                         </div>
                         <!-- Card - Left -->
                         <div class="md:w-5/12 md:mr-auto md:pr-16 pt-16 md:pt-0 pl-8 md:pl-0">
-                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-6 lg:p-8">
+                            <div class="bg-surface-container backdrop-blur-xl rounded-2xl border border-outline-variant p-6 lg:p-8">
                                 <h4 class="font-headline text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-on-surface">Monitoreo</h4>
                                 <p class="text-secondary text-sm lg:text-base leading-relaxed">Seguimiento de rendimiento en tiempo real y captura de datos 24/7 para mantener el control total.</p>
                             </div>
@@ -856,7 +998,7 @@
                         </div>
                         <!-- Card - Right -->
                         <div class="md:w-5/12 md:ml-auto md:pl-16 pt-16 md:pt-0 pr-8 md:pr-0">
-                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-6 lg:p-8">
+                            <div class="bg-surface-container backdrop-blur-xl rounded-2xl border border-outline-variant p-6 lg:p-8">
                                 <h4 class="font-headline text-xl lg:text-2xl font-bold mb-3 lg:mb-4 text-on-surface">Optimización</h4>
                                 <p class="text-secondary text-sm lg:text-base leading-relaxed">Escalado iterativo basado en datos para maximizar tu retorno de inversión y resultados.</p>
                             </div>
@@ -866,7 +1008,7 @@
             </div>
         </section>
         <!-- Clients Section - Infinite Multi-Row Marquee -->
-        <section class="clients-section py-16 md:py-24 border-y border-outline-variant/10 bg-surface-container-low">
+        <section class="clients-section py-16 md:py-24 border-y border-outline-variant bg-surface-container-low">
             <div class="max-w-[1440px] mx-auto px-4 md:px-8 mb-8 lg:mb-12">
                 <div class="text-center">
                     <h3 class="font-headline text-2xl md:text-3xl lg:text-4xl font-bold text-on-surface mb-3">Nuestros Clientes</h3>
@@ -997,7 +1139,7 @@
                                            id="name" 
                                            name="name" 
                                            required
-                                           class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all text-sm lg:text-base"
+                                           class="w-full bg-surface-container border border-outline-variant rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface placeholder-gray-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all text-sm lg:text-base"
                                            placeholder="Tu nombre">
                                 </div>
                                 <div class="form-group">
@@ -1006,7 +1148,7 @@
                                            id="email" 
                                            name="email" 
                                            required
-                                           class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-5 py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all"
+                                           class="w-full bg-surface-container border border-outline-variant rounded-xl px-5 py-4 text-on-surface placeholder-gray-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all"
                                             placeholder="tu@email.com">
                                  </div>
                              </div>
@@ -1016,7 +1158,7 @@
                                  <input type="text" 
                                         id="company" 
                                         name="company"
-                                        class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all text-sm lg:text-base"
+                                        class="w-full bg-surface-container border border-outline-variant rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface placeholder-gray-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all text-sm lg:text-base"
                                         placeholder="Nombre de tu empresa">
                              </div>
 
@@ -1024,7 +1166,7 @@
                                  <label for="service" class="block font-label text-xs uppercase tracking-widest text-secondary mb-2">Servicio de Interés</label>
                                  <select id="service" 
                                          name="service"
-                                         class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all appearance-none cursor-pointer text-sm lg:text-base">
+                                         class="w-full bg-surface-container border border-outline-variant rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all appearance-none cursor-pointer text-sm lg:text-base">
                                      <option value="">Selecciona un servicio</option>
                                      <option value="social-media">Social Media</option>
                                      <option value="web-development">Web Development</option>
@@ -1040,7 +1182,7 @@
                                           name="message" 
                                           rows="4" 
                                           required
-                                          class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none text-sm lg:text-base"
+                                          class="w-full bg-surface-container border border-outline-variant rounded-xl px-4 lg:px-5 py-3 lg:py-4 text-on-surface placeholder-gray-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none text-sm lg:text-base"
                                           placeholder="Cuéntanos sobre tu proyecto..."></textarea>
                              </div>
 
@@ -1067,7 +1209,7 @@
                         <h2
                             class="font-headline text-2xl md:text-4xl lg:text-6xl font-black text-on-primary mb-4 lg:mb-6 leading-tight uppercase">
                             ¿Listo para dominar el panorama digital?</h2>
-                        <p class="text-on-primary/80 text-base lg:text-lg md:text-xl font-medium">Únete a la agencia que transforma el potencial de tu marca en momentum cinético.</p>
+                        <p class="text-on-primary text-base lg:text-lg md:text-xl font-medium">Únete a la agencia que transforma el potencial de tu marca en momentum cinético.</p>
                     </div>
                     <div class="flex-shrink-0">
                         <a href="#contact"
@@ -1080,45 +1222,46 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="bg-[#131313] w-full border-t border-zinc-800/50">
+    <footer class="bg-background w-full border-t border-outline-variant">
         <div class="grid grid-cols-1 md:grid-cols-4 gap-8 lg:gap-12 px-4 md:px-8 lg:px-12 py-12 lg:py-20 max-w-[1440px] mx-auto">
             <div class="md:col-span-1">
-                <img src="logo.png" alt="Yellow Digital" class="h-12 w-auto object-contain mb-4">
-                <p class="text-zinc-500 text-sm leading-relaxed mb-8">
+                <img src="logo-dark.png" alt="Yellow Digital" class="h-12 w-auto object-contain mb-4 logo-light">
+                <img src="logo.png" alt="Yellow Digital" class="h-12 w-auto object-contain mb-4 logo-dark hidden">
+                <p class="text-on-surface text-sm leading-relaxed mb-8">
                     Transformamos tu presencia digital con creatividad, estrategia y resultados que marcan la diferencia.
                 </p>
                 <div class="flex gap-4">
-                    <a class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-zinc-400"
+                    <a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface"
                         href="#">
                         <span class="material-symbols-outlined text-lg" data-icon="share">share</span>
                     </a>
-                    <a class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-zinc-400"
+                    <a class="w-10 h-10 rounded-full border border-outline-variant flex items-center justify-center text-on-surface"
                         href="#">
                         <span class="material-symbols-outlined text-lg" data-icon="public">public</span>
                     </a>
                 </div>
             </div>
             <div>
-                <h4 class="font-headline text-xl text-white mb-8 font-bold">Servicios</h4>
+                <h4 class="font-headline text-xl text-on-surface mb-8 font-bold">Servicios</h4>
                 <ul class="space-y-4 font-label text-xs uppercase tracking-widest">
-                    <li><a class="text-zinc-500" href="#services">Social Media</a></li>
-                    <li><a class="text-zinc-500" href="#services">Web Development</a></li>
-                    <li><a class="text-zinc-500" href="#services">Digital Ads</a></li>
-                    <li><a class="text-zinc-500" href="#services">UGC Content</a></li>
+                    <li><a class="text-on-surface" href="#services">Social Media</a></li>
+                    <li><a class="text-on-surface" href="#services">Web Development</a></li>
+                    <li><a class="text-on-surface" href="#services">Digital Ads</a></li>
+                    <li><a class="text-on-surface" href="#services">UGC Content</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-headline text-xl text-white mb-8 font-bold">Navegación</h4>
+                <h4 class="font-headline text-xl text-on-surface mb-8 font-bold">Navegación</h4>
                 <ul class="space-y-4 font-label text-xs uppercase tracking-widest">
-                    <li><a class="text-zinc-500" href="#services">Servicios</a></li>
-                    <li><a class="text-zinc-500" href="#why-us">¿Por Qué Nosotros?</a></li>
-                    <li><a class="text-zinc-500" href="#process">Proceso</a></li>
-                    <li><a class="text-zinc-500" href="#contact">Contacto</a></li>
+                    <li><a class="text-on-surface" href="#services">Servicios</a></li>
+                    <li><a class="text-on-surface" href="#why-us">¿Por Qué Nosotros?</a></li>
+                    <li><a class="text-on-surface" href="#process">Proceso</a></li>
+                    <li><a class="text-on-surface" href="#contact">Contacto</a></li>
                 </ul>
             </div>
             <div>
-                <h4 class="font-headline text-xl text-white mb-8 font-bold">Newsletter</h4>
-                <p class="text-zinc-500 text-sm mb-6">Mantente actualizado con nuestras últimas novedades.</p>
+                <h4 class="font-headline text-xl text-on-surface mb-8 font-bold">Newsletter</h4>
+                <p class="text-on-surface text-sm mb-6">Mantente actualizado con nuestras últimas novedades.</p>
                 <form class="relative">
                     <input
                         class="w-full bg-surface-container-highest border-none rounded-full px-6 py-4 text-sm focus:ring-2 focus:ring-[#FFDF39] transition-all"
@@ -1131,8 +1274,8 @@
                 </form>
             </div>
         </div>
-        <div class="px-12 py-8 max-w-[1440px] mx-auto border-t border-zinc-800/30">
-            <p class="text-zinc-600 text-[10px] uppercase tracking-widest text-center">
+        <div class="px-12 py-8 max-w-[1440px] mx-auto border-t border-outline-variant">
+            <p class="text-on-surface opacity-60 text-[10px] uppercase tracking-widest text-center">
                 © 2026 Yellow Digital. Todos los derechos reservados.
             </p>
         </div>
@@ -1416,16 +1559,20 @@
                     this.x, this.y, 0,
                     this.x, this.y, this.size * 3
                 );
-                gradient.addColorStop(0, `hsla(${this.hue}, 100%, 70%, ${this.life})`);
-                gradient.addColorStop(0.5, `hsla(${this.hue}, 100%, 50%, ${this.life * 0.5})`);
+                const style = getComputedStyle(document.documentElement);
+                const pl = style.getPropertyValue('--particle-lightness').trim();
+                const plm = style.getPropertyValue('--particle-lightness-mid').trim();
+                const plc = style.getPropertyValue('--particle-lightness-core').trim();
+                gradient.addColorStop(0, `hsla(${this.hue}, 100%, ${pl}, ${this.life})`);
+                gradient.addColorStop(0.5, `hsla(${this.hue}, 100%, ${plm}, ${this.life * 0.5})`);
                 gradient.addColorStop(1, 'transparent');
-                
+
                 ctx.fillStyle = gradient;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
                 ctx.fill();
-                
-                ctx.fillStyle = `hsla(${this.hue}, 100%, 90%, ${this.life})`;
+
+                ctx.fillStyle = `hsla(${this.hue}, 100%, ${plc}, ${this.life})`;
                 ctx.beginPath();
                 ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -1714,6 +1861,42 @@
                 }, 3000);
             });
         }
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        const iconLight = document.querySelector('.theme-icon-light');
+        const iconDark = document.querySelector('.theme-icon-dark');
+
+        function setTheme(dark) {
+            if (dark) {
+                html.classList.add('dark');
+                iconLight.classList.add('hidden');
+                iconDark.classList.remove('hidden');
+                document.querySelectorAll('.logo-light').forEach(el => el.classList.add('hidden'));
+                document.querySelectorAll('.logo-dark').forEach(el => el.classList.remove('hidden'));
+            } else {
+                html.classList.remove('dark');
+                iconLight.classList.remove('hidden');
+                iconDark.classList.add('hidden');
+                document.querySelectorAll('.logo-light').forEach(el => el.classList.remove('hidden'));
+                document.querySelectorAll('.logo-dark').forEach(el => el.classList.add('hidden'));
+            }
+            localStorage.setItem('theme', dark ? 'dark' : 'light');
+        }
+
+        // Initialize theme from localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            setTheme(true);
+        } else {
+            setTheme(false);
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const isDark = html.classList.contains('dark');
+            setTheme(!isDark);
+        });
 
     </script>
 </body>
