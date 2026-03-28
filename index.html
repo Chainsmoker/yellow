@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Yellow Digital</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#1f1f1f",
+                        "surface-tint": "#e4c51a",
+                        "secondary-fixed": "#e5e2e1",
+                        "tertiary-fixed-dim": "#c6c6c7",
+                        "inverse-surface": "#e2e2e2",
+                        "surface-dim": "#131313",
+                        "on-secondary-fixed-variant": "#474646",
+                        "surface-container-high": "#2a2a2a",
+                        "surface-container-highest": "#353535",
+                        "inverse-primary": "#6e5e00",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#1a1c1c",
+                        "inverse-on-surface": "#303030",
+                        "outline-variant": "#4c4733",
+                        "secondary": "#c9c6c5",
+                        "secondary-container": "#474646",
+                        "surface-container-low": "#1b1b1b",
+                        "surface-bright": "#393939",
+                        "on-primary": "#393000",
+                        "primary-fixed-dim": "#e4c51a",
+                        "primary": "#fffbff",
+                        "primary-fixed": "#ffe256",
+                        "surface-variant": "#353535",
+                        "on-surface-variant": "#cfc6ac",
+                        "on-primary-container": "#736200",
+                        "on-surface": "#e2e2e2",
+                        "on-secondary": "#313030",
+                        "on-tertiary": "#2f3131",
+                        "on-primary-fixed": "#211b00",
+                        "background": "#131313",
+                        "on-primary-fixed-variant": "#534600",
+                        "error-container": "#93000a",
+                        "surface": "#131313",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#c9c6c5",
+                        "on-tertiary-fixed-variant": "#454747",
+                        "on-background": "#e2e2e2",
+                        "tertiary-fixed": "#e2e2e2",
+                        "on-secondary-container": "#b7b4b4",
+                        "on-tertiary-container": "#616363",
+                        "primary-container": "#ffdf39",
+                        "outline": "#989179",
+                        "tertiary-container": "#e0e0e0",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary": "#fcfcfc",
+                        "error": "#ffb4ab",
+                        "on-secondary-fixed": "#1c1b1b"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        [id] {
+            scroll-margin-top: 80px;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        .text-outline {
+            -webkit-text-stroke: 1px #989179;
+            color: transparent;
+        }
+
+        .hero-shape {
+            opacity: 0;
+        }
+
+        .hero-char {
+            display: inline-block;
+        }
+
+        .infinite-marquee {
+            width: 100%;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: inline-flex;
+            align-items: center;
+            gap: 3rem;
+            animation: marquee 25s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        .marquee-item {
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .marquee-item:hover {
+            -webkit-text-stroke: 0px;
+            color: #FFDF39;
+        }
+
+        .marquee-separator {
+            flex-shrink: 0;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-33.33%);
+            }
+        }
+
+        .stat-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(255, 223, 57, 0.1);
+        }
+
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .team-section img {
+            transition: transform 0.3s ease;
+        }
+
+        .team-section img:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+
+        .partners-section > div > div:first-child {
+            transition: background 0.3s ease;
+        }
+
+        .partners-section > div:hover > div:first-child {
+            background: rgba(50, 50, 50, 0.8) !important;
+        }
+
+        #cursor-trail {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .timeline-container {
+            position: relative;
+        }
+
+        .timeline-line {
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #FFDF39, #e4c51a);
+            transform-origin: top;
+        }
+
+        .timeline-card {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline-number {
+            background: linear-gradient(135deg, #FFDF39, #e4c51a);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        @media (max-width: 767px) {
+            .timeline-line {
+                left: 28px !important;
+            }
+            
+            .timeline-card > div:first-child {
+                left: 28px !important;
+            }
+        }
+
+        .clients-section {
+            overflow: hidden;
+        }
+
+        .clients-marquee-row {
+            display: flex;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-bottom: 1.5rem;
+        }
+
+        .clients-marquee-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .clients-track {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            animation: marquee-left 30s linear infinite;
+        }
+
+        .clients-marquee-row:nth-child(even) .clients-track {
+            animation: marquee-right 35s linear infinite;
+        }
+
+        .clients-marquee-row:nth-child(3) .clients-track {
+            animation: marquee-left 40s linear infinite;
+        }
+
+        .clients-marquee-row:hover .clients-track {
+            animation-play-state: paused;
+        }
+
+        .client-card {
+            flex-shrink: 0;
+            background: rgba(31, 31, 31, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(152, 145, 121, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem 2.5rem;
+            min-width: 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .client-card:hover {
+            background: rgba(255, 223, 57, 0.1);
+            border-color: rgba(255, 223, 57, 0.3);
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(255, 223, 57, 0.1);
+        }
+
+        .client-name {
+            font-family: 'Manrope', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: #e2e2e2;
+            letter-spacing: 0.05em;
+        }
+
+        .client-card:hover .client-name {
+            color: #FFDF39;
+        }
+
+        @keyframes marquee-left {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        @keyframes marquee-right {
+            0% {
+                transform: translateX(-50%);
+            }
+            100% {
+                transform: translateX(0);
+            }
+        }
+
+        .contact-image-wrapper {
+            position: relative;
+        }
+
+        .contact-image-wrapper img {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            background: rgba(31, 31, 31, 0.8);
+        }
+
+        select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23FFDF39' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1.5rem;
+            padding-right: 3rem;
+        }
+
+        .contact-image-wrapper {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .contact-form-wrapper {
+            opacity: 0;
+            transform: translateX(50px);
+        }
+
+        html {
+            scroll-behavior: auto !important;
+        }
+
+        body {
+            scroll-behavior: auto !important;
+        }
+
+        .hero-char {
+            display: inline-block;
+        }
+
+        .hero-title-line {
+            display: block;
+            line-height: 0.9;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(60px);
+        }
+
+        .animate-left {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+
+        .animate-right {
+            opacity: 0;
+            transform: translateX(60px);
+        }
+
+        .animate-scale {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .service-card {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: none;
+        }
+
+        .service-card:hover {
+            transform: none !important;
+        }
+
+        .stat-item {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: none;
+        }
+
+        .stat-item:hover {
+            transform: none !important;
+        }
+
+        .team-section, .partners-section {
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .client-card {
+            transition: none;
+        }
+
+        .client-card:hover {
+            transform: none !important;
+        }
+
+        .about-text {
+            opacity: 0;
+            transform: translateX(-60px);
+        }
+
+        .why-us-item {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        .why-us-image img {
+            transition: filter 0.7s ease;
+        }
+
+        .why-us-image:hover img {
+            filter: grayscale(0);
+        }
+
+        .cta-content {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        footer {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+    <!-- Cursor Trail Canvas -->
+    <canvas id="cursor-trail" class="fixed inset-0 pointer-events-none z-[9999]"></canvas>
+    
+    <!-- TopNavBar -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#131313]/60 backdrop-blur-lg shadow-[0_20px_40px_rgba(0,0,0,0.4)]">
+        <div class="flex justify-between items-center px-8 py-5 max-w-[1440px] mx-auto">
+            <a href="#" class="flex items-center">
+                 <img src="logo.png" alt="Yellow Digital" class="h-8 md:h-10 w-auto object-contain">
+            </a>
+            <div class="hidden md:flex gap-10 items-center font-['Inter'] font-medium text-sm tracking-wide">
+                <a class="text-[#FFDF39] border-b-2 border-[#FFDF39] pb-1" href="#services">Servicios</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#why-us">¿Por Qué Nosotros?</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#process">Proceso</a>
+                <a class="text-zinc-400 hover:text-white transition-colors" href="#contact">Contacto</a>
+            </div>
+            <a href="#contact"
+                class="bg-primary-container text-on-primary font-label font-bold text-xs uppercase tracking-widest px-8 py-3 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 inline-block">
+                Iniciar Proyecto
+            </a>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero Section -->
+        <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+            <!-- Decorative Lines -->
+            <svg class="absolute inset-0 w-full h-full z-[5] pointer-events-none overflow-visible" preserveAspectRatio="none">
+                <line class="hero-line hero-line-1" x1="0%" y1="30%" x2="0%" y2="30%" stroke="#FFDF39" stroke-width="1"/>
+                <line class="hero-line hero-line-2" x1="100%" y1="70%" x2="100%" y2="70%" stroke="#FFDF39" stroke-width="1"/>
+                <circle class="hero-circle" cx="50%" cy="50%" r="0" fill="none" stroke="#FFDF39" stroke-width="1" opacity="0.3"/>
+            </svg>
+            
+            <!-- Floating Shapes -->
+            <div class="absolute top-1/4 left-[10%] w-32 h-32 border border-primary-container/20 rounded-full animate-pulse hero-shape hero-shape-1"></div>
+            <div class="absolute bottom-1/4 right-[15%] w-20 h-20 bg-primary-container/10 rounded-lg rotate-45 hero-shape hero-shape-2"></div>
+            <div class="absolute top-1/3 right-[20%] w-2 h-2 bg-primary-container rounded-full hero-shape hero-shape-3"></div>
+            
+            <div class="absolute inset-0 z-0 hero-bg">
+                <img class="w-full h-full object-cover opacity-60 hero-bg-img grayscale"
+                    src="bg.png"
+                    alt="Yellow Digital Background" />
+                <div class="absolute inset-0 bg-black/40"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/40"></div>
+            </div>
+            <div class="relative z-10 max-w-[1440px] px-8 text-center">
+                <span class="font-label text-primary-fixed-dim text-xs uppercase tracking-[0.4em] mb-6 block hero-tagline opacity-0">Más Allá del Digital Convencional</span>
+                <h1 class="font-headline text-6xl md:text-[8rem] font-black text-on-surface mb-12 uppercase">
+                    <span class="hero-title-line"><span class="hero-char">Y</span><span class="hero-char">e</span><span class="hero-char">l</span><span class="hero-char">l</span><span class="hero-char">o</span><span class="hero-char">w</span></span><span class="hero-title-line text-primary-container"><span class="hero-char">D</span><span class="hero-char">i</span><span class="hero-char">g</span><span class="hero-char">i</span><span class="hero-char">t</span><span class="hero-char">a</span><span class="hero-char">l</span></span>
+                </h1>
+                <p class="max-w-2xl mx-auto text-lg md:text-xl text-secondary font-body mb-10 leading-relaxed hero-description opacity-0">
+                    Creando experiencias digitales de alto rendimiento mediante estrategia en redes sociales, maestría técnica y rebeldía creativa.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-center hero-buttons">
+                    <a href="#contact"
+                        class="bg-primary-container text-on-primary font-label font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-full hover:scale-105 active:scale-95 transition-all duration-300 hero-btn hero-btn-1 inline-block">
+                        Trabajemos Juntos
+                    </a>
+                    <button
+                        class="bg-surface-variant/20 backdrop-blur-xl border border-outline-variant/15 text-on-surface font-label font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-full hero-btn hero-btn-2">
+                        Ver Portafolio
+                    </button>
+                </div>
+            </div>
+        </section>
+        <!-- Kinetic Marquee - Infinite Slider -->
+        <div class="bg-surface-container-low py-12 overflow-hidden border-y border-outline-variant/10">
+            <div class="infinite-marquee">
+                <div class="marquee-track">
+                    <!-- First set -->
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Social
+                        Media</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Web
+                        Development</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Digital
+                        Ads</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">UGC
+                        Content</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Brand
+                        Strategy</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <!-- Second set (duplicate for infinite loop) -->
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Social
+                        Media</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Web
+                        Development</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Digital
+                        Ads</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">UGC
+                        Content</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Brand
+                        Strategy</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <!-- Third set for smooth transition -->
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Social
+                        Media</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Web
+                        Development</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Digital
+                        Ads</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">UGC
+                        Content</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                    <span class="marquee-item text-outline text-5xl md:text-7xl font-black uppercase font-headline">Brand
+                        Strategy</span>
+                    <span class="marquee-separator text-on-surface-variant/20 text-5xl md:text-7xl font-black uppercase font-headline">/</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Us Section -->
+        <section class="py-32 px-8 bg-surface-container-low">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                    <!-- Left: Text Content -->
+                    <div class="about-text">
+                        <span class="font-label text-primary-fixed text-xs uppercase tracking-widest mb-4 block">Sobre Nosotros</span>
+                        <h2 class="font-headline text-5xl md:text-6xl font-extrabold text-on-surface tracking-tight mb-6">
+                            Somos <span class="text-primary-container">Yellow Digital</span>
+                        </h2>
+                        <p class="text-secondary text-lg leading-relaxed mb-6">
+                            Somos una agencia de marketing digital enfocada en ayudar a marcas y empresas en crecimiento a vender más y posicionarse mejor en entornos digitales.
+                        </p>
+                        <p class="text-secondary leading-relaxed">
+                            Combinamos estrategia, creatividad y contenido de alto impacto para generar resultados reales que importan.
+                        </p>
+                    </div>
+                    
+                    <!-- Right: Stats -->
+                    <div class="grid grid-cols-3 gap-8">
+                        <div class="stat-item text-center p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/10">
+                            <div class="font-headline text-5xl md:text-6xl font-black text-primary-container mb-2 stat-number" data-target="50">0</div>
+                            <div class="font-label text-xs uppercase tracking-widest text-secondary">Proyectos</div>
+                        </div>
+                        <div class="stat-item text-center p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/10">
+                            <div class="font-headline text-5xl md:text-6xl font-black text-primary-container mb-2 stat-number" data-target="30">0</div>
+                            <div class="font-label text-xs uppercase tracking-widest text-secondary">Clientes</div>
+                        </div>
+                        <div class="stat-item text-center p-6 bg-surface-container-high/30 rounded-2xl border border-outline-variant/10">
+                            <div class="font-headline text-5xl md:text-6xl font-black text-primary-container mb-2 stat-number" data-target="3">0</div>
+                            <div class="font-label text-xs uppercase tracking-widest text-secondary">Años</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team & Partners -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-12 border-t border-outline-variant/10">
+                    <!-- Team -->
+                    <div class="team-section flex items-center gap-6">
+                        <div class="flex -space-x-4">
+                            <img class="w-14 h-14 rounded-full border-2 border-surface-container-low object-cover" 
+                                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Team member"/>
+                            <img class="w-14 h-14 rounded-full border-2 border-surface-container-low object-cover" 
+                                 src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face" alt="Team member"/>
+                            <img class="w-14 h-14 rounded-full border-2 border-surface-container-low object-cover" 
+                                 src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Team member"/>
+                            <div class="w-14 h-14 rounded-full border-2 border-surface-container-low bg-primary-container flex items-center justify-center text-on-primary font-bold text-sm">+5</div>
+                        </div>
+                        <div>
+                            <div class="font-headline text-xl font-bold text-on-surface">Yellow Digital Team</div>
+                            <div class="font-label text-xs uppercase tracking-widest text-secondary">Equipo Certificado</div>
+                        </div>
+                    </div>
+
+                    <!-- Partners -->
+                    <div class="partners-section flex flex-col sm:flex-row items-center justify-end gap-8">
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-[120px] bg-surface-container-high/50 rounded-lg flex items-center justify-center">
+                                <span class="font-headline font-bold text-lg text-white">Google</span>
+                            </div>
+                            <span class="font-label text-xs uppercase tracking-widest text-secondary">Partner</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="h-10 w-[100px] bg-surface-container-high/50 rounded-lg flex items-center justify-center">
+                                <span class="font-headline font-bold text-lg text-white">Meta</span>
+                            </div>
+                            <span class="font-label text-xs uppercase tracking-widest text-secondary">Partner</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-32 px-8 max-w-[1440px] mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div class="max-w-2xl">
+                    <span class="font-label text-primary-fixed text-xs uppercase tracking-widest mb-4 block">Nuestra
+                        Experiencia</span>
+                    <h2 class="font-headline text-4xl md:text-6xl font-extrabold text-on-surface tracking-tight">
+                        Construidos con precisión para la era digital.</h2>
+                </div>
+                <div class="text-secondary text-right font-body">
+                    Transformamos ideas en resultados extraordinarios.
+                </div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="service-card p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                    <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-10">
+                        <span class="material-symbols-outlined text-on-primary text-2xl" data-icon="share">share</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4">Social Media</h3>
+                    <p class="text-secondary font-body leading-relaxed mb-8">Orquestación estratégica de contenido que
+                        captura la atención y domina el algoritmo.</p>
+                    <a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary-fixed hover:gap-4 transition-all"
+                        href="#">
+                        Ver Más <span class="material-symbols-outlined text-sm"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div class="service-card p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                    <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-10">
+                        <span class="material-symbols-outlined text-on-primary text-2xl" data-icon="code">code</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4">Web Development</h3>
+                    <p class="text-secondary font-body leading-relaxed mb-8">Interfaces de alta fidelidad diseñadas para
+                        velocidad, conversión y dominio estético.</p>
+                    <a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary-fixed hover:gap-4 transition-all"
+                        href="#">
+                        Ver Más <span class="material-symbols-outlined text-sm"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 3 -->
+                <div class="service-card p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                    <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-10">
+                        <span class="material-symbols-outlined text-on-primary text-2xl"
+                            data-icon="ads_click">ads_click</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4">Digital Ads</h3>
+                    <p class="text-secondary font-body leading-relaxed mb-8">Marketing de performance basado en datos
+                        enfocado en ROI y adquisición sostenible de clientes.</p>
+                    <a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary-fixed hover:gap-4 transition-all"
+                        href="#">
+                        Ver Más <span class="material-symbols-outlined text-sm"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 4 -->
+                <div class="service-card p-8 bg-surface-container-high/40 backdrop-blur-xl rounded-xl border border-outline-variant/10">
+                    <div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center mb-10">
+                        <span class="material-symbols-outlined text-on-primary text-2xl"
+                            data-icon="video_camera_front">video_camera_front</span>
+                    </div>
+                    <h3 class="font-headline text-2xl font-bold mb-4">UGC Creators</h3>
+                    <p class="text-secondary font-body leading-relaxed mb-8">Narrativa auténtica a través de nuestra red
+                        de creadores para generar confianza y prueba social.</p>
+                    <a class="inline-flex items-center gap-2 font-label text-xs font-bold uppercase tracking-widest text-primary-fixed"
+                        href="#">
+                        Ver Más <span class="material-symbols-outlined text-sm"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section id="why-us" class="py-32 bg-surface-container-low">
+            <div class="max-w-[1440px] mx-auto px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+                    <div class="lg:col-span-5">
+                        <span class="font-label text-primary-fixed text-xs uppercase tracking-widest mb-4 block">La
+                            Ventaja Yellow</span>
+                        <h2 class="font-headline text-5xl font-extrabold mb-8 tracking-tight">¿Qué lograrás con Nosotros?</h2>
+                        <p class="text-secondary text-lg mb-12">Te ayudamos a que tus métricas mejoren. Combinamos rigor analítico con rebeldía creativa para generar resultados tangibles.</p>
+                        <div class="space-y-8">
+                            <div class="why-us-item flex gap-6 items-start">
+                                <div class="mt-1">
+                                    <span class="material-symbols-outlined text-primary-fixed text-3xl"
+                                        data-icon="trending_up">trending_up</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-headline text-xl font-bold mb-2">Crecer en Ventas</h4>
+                                    <p class="text-zinc-500">Aumenta tus ingresos con estrategias de marketing digital diseñadas para convertir visitantes en clientes.</p>
+                                </div>
+                            </div>
+                            <div class="why-us-item flex gap-6 items-start">
+                                <div class="mt-1">
+                                    <span class="material-symbols-outlined text-primary-fixed text-3xl"
+                                        data-icon="group_add">group_add</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-headline text-xl font-bold mb-2">Aumentar Seguidores</h4>
+                                    <p class="text-zinc-500">Construye una comunidad engaged en redes sociales que crezca orgánicamente y se convierta en tu mejor embajadora.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="why-us-item flex gap-6 items-start">
+                                <div class="mt-1">
+                                    <span class="material-symbols-outlined text-primary-fixed text-3xl"
+                                        data-icon="diamond">diamond</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-headline text-xl font-bold mb-2">Mayor Posicionamiento</h4>
+                                    <p class="text-zinc-500">Posiciona tu marca como líder en tu industria con una identidad digital sólida y consistente.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-7">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-6 pt-12">
+                                <div class="why-us-image aspect-[4/5] rounded-xl overflow-hidden bg-surface-container">
+                                    <img class="w-full h-full object-cover grayscale"
+                                        data-alt="Abstract data visualization with yellow glowing lines on a dark interface, representing growth and analysis"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDLhCh16zXQBk2TlqbZtgAuVfwPmmp63QLu8_Zeen07mioIeWpIiUvZOZXSXeKlsAVOYMI6NEkY3lrh2dQWbP-qOM5bjxIaJSccQbyTKfHhynDxQpNr5thTUnozSQa7V0HLsuDRs1eCuFO4SRFevbQT6czwWqHCn3SPQtVNqwaPT4ttN3SpxmqdDeujOteop1hOdJJDkfCq2Z3JaLOmz6m9Lee1l5guhl0qCRteWVP4znbt6Mbstb_c4datTnTNeR7PPBUANSi67Ej" />
+                                </div>
+                                <div class="why-us-image aspect-square rounded-xl overflow-hidden bg-surface-container">
+                                    <img class="w-full h-full object-cover grayscale"
+                                        data-alt="Close up of a creative professional sketching brand concepts on a tablet in a dark moody studio"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYj-WN2EZdzqh9uiLyeYGjCbt7PTvMhCyf6b1z17ENmuAUc0uUi8VjM5pk_kOfCoaf7lwB2G-VlgvQpL_hypVmu5p4v7WKQ4_byS2Z5kA_MNJy4hhc9eh1wr7cAkEtKpO6gRdfyyONlGwJCr4QT9qrDGR0vSFzXdb1VaDJpmjvuI1l3FRMrdu1TDUmm-cBCyQnd_OTqSGghBm_rgO2TmnS9e_qlmYQD8Etqw2mS5gE27tJ_nUtU_fCe-vHY09wdVAwsk4bwgbITI_x" />
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="why-us-image aspect-square rounded-xl overflow-hidden bg-surface-container">
+                                    <img class="w-full h-full object-cover grayscale"
+                                        data-alt="Modern minimalist workspace with a laptop showing code and a coffee cup, overhead perspective"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9YDsEJBPHq7yw2UokVa5FRHumiVQnvh0acyo01tZd7WLjs96ge6BS01Uwx_LydLl7r4NZXjMLyYfIZS3CJHaTN66T5Vp8yCsa7X2CnsiEZeSJCpO5sstoKfaz6GSdplysPU2cyDlJBy8cZJEzJB9yEUpWCeLVkzhLjKmTP_URbGiEHPmSc4lKj5e5Gsdc57yMFrI3QkSM_A18QmGvZ19DuLu4X--1V_k7Iqo2FjQKgNx02O0odjS5Qn0RN7VvY-wvYaUN6XzvVZnt" />
+                                </div>
+                                <div class="why-us-image aspect-[4/5] rounded-xl overflow-hidden bg-surface-container">
+                                    <img class="w-full h-full object-cover grayscale"
+                                        data-alt="Technical dashboard showing social media growth metrics with vibrant yellow highlights on dark mode UI"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAe1fx5TJ9skXDjk83f1Miw8x1Wfgz0vqLp1dQeZgEnkqjffzdO6pFsxWLhajRKWMHvazSJXAjOdC1SKBrTsq6OiRy9Hbd3GTT6KXtHdDIQESqmLd_Be9OQ4GSVOyUO3USR0mhKUeXN3XKxBgXOg8kF6JWAwQ1MXS6yDvnjwPtQedK_9CKIFmMNmQDJiLIjKyAZu-bxR5Bh-ZWTUPfw55qMoF7JqkesTWgVkvQx-rqOZ9zyQPFkM-WZ_3208rl2Hzx2g7wRcd5ULTy6" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section - Vertical Timeline -->
+        <section id="process" class="py-32 px-8 max-w-[1440px] mx-auto">
+            <div class="text-center mb-24">
+                <span class="font-label text-primary-fixed text-xs uppercase tracking-widest mb-4 block">Nuestro
+                    Proceso</span>
+                <h2 class="font-headline text-5xl font-extrabold tracking-tight">El Camino al Éxito</h2>
+            </div>
+            
+            <div class="timeline-container relative max-w-6xl mx-auto">
+                <!-- Vertical Line (centered) -->
+                <div class="timeline-line absolute left-1/2 transform -translate-x-1/2" id="timeline-progress"></div>
+                
+                <!-- Steps -->
+                <div class="space-y-16 md:space-y-24">
+                    <!-- Step 1 - Left -->
+                    <div class="timeline-card relative">
+                        <!-- Number Circle (centered on line) -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 top-0 w-14 h-14 rounded-full bg-surface-container-high border-4 border-primary-container flex items-center justify-center z-10 shadow-lg shadow-primary-container/20">
+                            <span class="font-headline font-black text-xl timeline-number">01</span>
+                        </div>
+                        <!-- Card - Left -->
+                        <div class="md:w-5/12 md:mr-auto md:pr-16 pt-20 md:pt-0">
+                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-8">
+                                <h4 class="font-headline text-2xl font-bold mb-4 text-on-surface">Análisis</h4>
+                                <p class="text-secondary leading-relaxed">Inmersión profunda en tendencias de mercado, comportamiento de audiencia y auditorías de marca para construir una estrategia sólida.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 - Right -->
+                    <div class="timeline-card relative">
+                        <!-- Number Circle (centered on line) -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 top-0 w-14 h-14 rounded-full bg-surface-container-high border-4 border-primary-container flex items-center justify-center z-10 shadow-lg shadow-primary-container/20">
+                            <span class="font-headline font-black text-xl timeline-number">02</span>
+                        </div>
+                        <!-- Card - Right -->
+                        <div class="md:w-5/12 md:ml-auto md:pl-16 pt-20 md:pt-0">
+                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-8">
+                                <h4 class="font-headline text-2xl font-bold mb-4 text-on-surface">Implementación</h4>
+                                <p class="text-secondary leading-relaxed">Ejecución precisa en todos los puntos de contacto digitales y plataformas con atención al detalle.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 - Left -->
+                    <div class="timeline-card relative">
+                        <!-- Number Circle (centered on line) -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 top-0 w-14 h-14 rounded-full bg-surface-container-high border-4 border-primary-container flex items-center justify-center z-10 shadow-lg shadow-primary-container/20">
+                            <span class="font-headline font-black text-xl timeline-number">03</span>
+                        </div>
+                        <!-- Card - Left -->
+                        <div class="md:w-5/12 md:mr-auto md:pr-16 pt-20 md:pt-0">
+                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-8 hover:bg-surface-container-high hover:border-primary-container/30 transition-all duration-500 hover:-translate-x-2">
+                                <h4 class="font-headline text-2xl font-bold mb-4 text-on-surface">Monitoreo</h4>
+                                <p class="text-secondary leading-relaxed">Seguimiento de rendimiento en tiempo real y captura de datos 24/7 para mantener el control total.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 4 - Right -->
+                    <div class="timeline-card relative">
+                        <!-- Number Circle (centered on line) -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 top-0 w-14 h-14 rounded-full bg-surface-container-high border-4 border-primary-container flex items-center justify-center z-10 shadow-lg shadow-primary-container/20">
+                            <span class="font-headline font-black text-xl timeline-number">04</span>
+                        </div>
+                        <!-- Card - Right -->
+                        <div class="md:w-5/12 md:ml-auto md:pl-16 pt-20 md:pt-0">
+                            <div class="bg-surface-container-high/40 backdrop-blur-xl rounded-2xl border border-outline-variant/10 p-8">
+                                <h4 class="font-headline text-2xl font-bold mb-4 text-on-surface">Optimización</h4>
+                                <p class="text-secondary leading-relaxed">Escalado iterativo basado en datos para maximizar tu retorno de inversión y resultados.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Clients Section - Infinite Multi-Row Marquee -->
+        <section class="clients-section py-24 border-y border-outline-variant/10 bg-surface-container-low">
+            <div class="max-w-[1440px] mx-auto px-8 mb-12">
+                <div class="text-center">
+                    <h3 class="font-headline text-3xl md:text-4xl font-bold text-on-surface mb-3">Nuestros Clientes</h3>
+                    <p class="font-label text-primary-fixed text-xs uppercase tracking-widest">Ellos confían en nosotros</p>
+                </div>
+            </div>
+
+            <!-- Row 1: Moving Left -->
+            <div class="clients-marquee-row">
+                <div class="clients-track">
+                    <!-- First set -->
+                    <div class="client-card"><span class="client-name">Hotel Fanny</span></div>
+                    <div class="client-card"><span class="client-name">Petzzo</span></div>
+                    <div class="client-card"><span class="client-name">Beauty Lounge</span></div>
+                    <div class="client-card"><span class="client-name">Mundo Textil</span></div>
+                    <div class="client-card"><span class="client-name">La Forja</span></div>
+                    <div class="client-card"><span class="client-name">COOPAC San Cristobal</span></div>
+                    <div class="client-card"><span class="client-name">Trascendencia</span></div>
+                    <div class="client-card"><span class="client-name">Studio Artcolor</span></div>
+                    <div class="client-card"><span class="client-name">Div Mundo</span></div>
+                    <div class="client-card"><span class="client-name">Cold Blood</span></div>
+                    <div class="client-card"><span class="client-name">Soul Fit</span></div>
+                    <!-- Duplicate for seamless loop -->
+                    <div class="client-card"><span class="client-name">Hotel Fanny</span></div>
+                    <div class="client-card"><span class="client-name">Petzzo</span></div>
+                    <div class="client-card"><span class="client-name">Beauty Lounge</span></div>
+                    <div class="client-card"><span class="client-name">Mundo Textil</span></div>
+                    <div class="client-card"><span class="client-name">La Forja</span></div>
+                    <div class="client-card"><span class="client-name">COOPAC San Cristobal</span></div>
+                    <div class="client-card"><span class="client-name">Trascendencia</span></div>
+                    <div class="client-card"><span class="client-name">Studio Artcolor</span></div>
+                    <div class="client-card"><span class="client-name">Div Mundo</span></div>
+                    <div class="client-card"><span class="client-name">Cold Blood</span></div>
+                    <div class="client-card"><span class="client-name">Soul Fit</span></div>
+                </div>
+            </div>
+
+            <!-- Row 2: Moving Right -->
+            <div class="clients-marquee-row">
+                <div class="clients-track">
+                    <!-- Reversed order -->
+                    <div class="client-card"><span class="client-name">Soul Fit</span></div>
+                    <div class="client-card"><span class="client-name">Cold Blood</span></div>
+                    <div class="client-card"><span class="client-name">Div Mundo</span></div>
+                    <div class="client-card"><span class="client-name">Studio Artcolor</span></div>
+                    <div class="client-card"><span class="client-name">Trascendencia</span></div>
+                    <div class="client-card"><span class="client-name">COOPAC San Cristobal</span></div>
+                    <div class="client-card"><span class="client-name">La Forja</span></div>
+                    <div class="client-card"><span class="client-name">Mundo Textil</span></div>
+                    <div class="client-card"><span class="client-name">Beauty Lounge</span></div>
+                    <div class="client-card"><span class="client-name">Petzzo</span></div>
+                    <div class="client-card"><span class="client-name">Hotel Fanny</span></div>
+                    <!-- Duplicate -->
+                    <div class="client-card"><span class="client-name">Soul Fit</span></div>
+                    <div class="client-card"><span class="client-name">Cold Blood</span></div>
+                    <div class="client-card"><span class="client-name">Div Mundo</span></div>
+                    <div class="client-card"><span class="client-name">Studio Artcolor</span></div>
+                    <div class="client-card"><span class="client-name">Trascendencia</span></div>
+                    <div class="client-card"><span class="client-name">COOPAC San Cristobal</span></div>
+                    <div class="client-card"><span class="client-name">La Forja</span></div>
+                    <div class="client-card"><span class="client-name">Mundo Textil</span></div>
+                    <div class="client-card"><span class="client-name">Beauty Lounge</span></div>
+                    <div class="client-card"><span class="client-name">Petzzo</span></div>
+                    <div class="client-card"><span class="client-name">Hotel Fanny</span></div>
+                </div>
+            </div>
+
+            <!-- Row 3: Moving Left (different speed) -->
+            <div class="clients-marquee-row">
+                <div class="clients-track">
+                    <!-- Different order -->
+                    <div class="client-card"><span class="client-name">Beauty Lounge</span></div>
+                    <div class="client-card"><span class="client-name">Hotel Fanny</span></div>
+                    <div class="client-card"><span class="client-name">Trascendencia</span></div>
+                    <div class="client-card"><span class="client-name">Petzzo</span></div>
+                    <div class="client-card"><span class="client-name">Soul Fit</span></div>
+                    <div class="client-card"><span class="client-name">La Forja</span></div>
+                    <div class="client-card"><span class="client-name">Div Mundo</span></div>
+                    <div class="client-card"><span class="client-name">COOPAC San Cristobal</span></div>
+                    <div class="client-card"><span class="client-name">Cold Blood</span></div>
+                    <div class="client-card"><span class="client-name">Studio Artcolor</span></div>
+                    <div class="client-card"><span class="client-name">Mundo Textil</span></div>
+                    <!-- Duplicate -->
+                    <div class="client-card"><span class="client-name">Beauty Lounge</span></div>
+                    <div class="client-card"><span class="client-name">Hotel Fanny</span></div>
+                    <div class="client-card"><span class="client-name">Trascendencia</span></div>
+                    <div class="client-card"><span class="client-name">Petzzo</span></div>
+                    <div class="client-card"><span class="client-name">Soul Fit</span></div>
+                    <div class="client-card"><span class="client-name">La Forja</span></div>
+                    <div class="client-card"><span class="client-name">Div Mundo</span></div>
+                    <div class="client-card"><span class="client-name">COOPAC San Cristobal</span></div>
+                    <div class="client-card"><span class="client-name">Cold Blood</span></div>
+                    <div class="client-card"><span class="client-name">Studio Artcolor</span></div>
+                    <div class="client-card"><span class="client-name">Mundo Textil</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-32 px-8">
+            <div class="max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Left: Image -->
+                    <div class="relative contact-image-wrapper">
+                        <div class="relative rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="contact.webp" 
+                                 alt="Yellow Digital Team" 
+                                 class="w-full h-auto object-cover"/>
+                        </div>
+                        <!-- Decorative elements -->
+                        <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary-container/20 rounded-full blur-2xl"></div>
+                        <div class="absolute -top-6 -left-6 w-24 h-24 bg-primary-container/10 rounded-full blur-xl"></div>
+                    </div>
+
+                    <!-- Right: Contact Form -->
+                    <div class="contact-form-wrapper">
+                        <div class="mb-10">
+                            <span class="font-label text-primary-fixed text-xs uppercase tracking-widest mb-4 block">Contacto</span>
+                            <h2 class="font-headline text-4xl md:text-5xl font-extrabold text-on-surface mb-4">Hablemos de tu Proyecto</h2>
+                            <p class="text-secondary text-lg">Cuéntanos sobre tu marca y te ayudaremos a llevarla al siguiente nivel.</p>
+                        </div>
+
+                        <form class="space-y-6" id="contactForm">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div class="form-group">
+                                    <label for="name" class="block font-label text-xs uppercase tracking-widest text-secondary mb-2">Nombre</label>
+                                    <input type="text" 
+                                           id="name" 
+                                           name="name" 
+                                           required
+                                           class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-5 py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all"
+                                           placeholder="Tu nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email" class="block font-label text-xs uppercase tracking-widest text-secondary mb-2">Email</label>
+                                    <input type="email" 
+                                           id="email" 
+                                           name="email" 
+                                           required
+                                           class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-5 py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all"
+                                           placeholder="tu@email.com">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="company" class="block font-label text-xs uppercase tracking-widest text-secondary mb-2">Empresa (Opcional)</label>
+                                <input type="text" 
+                                       id="company" 
+                                       name="company"
+                                       class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-5 py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all"
+                                       placeholder="Nombre de tu empresa">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="service" class="block font-label text-xs uppercase tracking-widest text-secondary mb-2">Servicio de Interés</label>
+                                <select id="service" 
+                                        name="service"
+                                        class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-5 py-4 text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all appearance-none cursor-pointer">
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="social-media">Social Media</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="digital-ads">Digital Ads</option>
+                                    <option value="ugc-content">UGC Content</option>
+                                    <option value="brand-strategy">Brand Strategy</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="block font-label text-xs uppercase tracking-widest text-secondary mb-2">Mensaje</label>
+                                <textarea id="message" 
+                                          name="message" 
+                                          rows="5" 
+                                          required
+                                          class="w-full bg-surface-container-high/40 border border-outline-variant/20 rounded-xl px-5 py-4 text-on-surface placeholder-zinc-500 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-primary-container/20 transition-all resize-none"
+                                          placeholder="Cuéntanos sobre tu proyecto..."></textarea>
+                            </div>
+
+                            <button type="submit" 
+                                     class="w-full bg-primary-container text-on-primary font-label font-bold text-sm uppercase tracking-widest px-10 py-5 rounded-xl flex items-center justify-center gap-3">
+                                <span>Enviar Mensaje</span>
+                                <span class="material-symbols-outlined">send</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section id="cta" class="py-32 px-8">
+            <div class="cta-content max-w-[1440px] mx-auto bg-primary-container rounded-[2rem] overflow-hidden relative">
+                <div
+                    class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/20 to-transparent">
+                </div>
+                <div
+                    class="relative z-10 p-12 md:p-24 text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-12">
+                    <div class="max-w-2xl">
+                        <h2
+                            class="font-headline text-4xl md:text-6xl font-black text-on-primary mb-6 leading-tight uppercase">
+                            ¿Listo para dominar el panorama digital?</h2>
+                        <p class="text-on-primary/80 text-lg md:text-xl font-medium">Únete a la agencia que transforma el potencial de tu marca en momentum cinético.</p>
+                    </div>
+                    <div class="flex-shrink-0">
+                        <a href="#contact"
+                            class="bg-on-primary text-primary-container font-headline font-black text-xl px-12 py-6 rounded-full shadow-2xl inline-block">
+                            Comienza tu Viaje
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer class="bg-[#131313] w-full border-t border-zinc-800/50">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-12 py-20 max-w-[1440px] mx-auto">
+            <div class="md:col-span-1">
+                <img src="logo.png" alt="Yellow Digital" class="h-12 w-auto object-contain mb-4">
+                <p class="text-zinc-500 text-sm leading-relaxed mb-8">
+                    Transformamos tu presencia digital con creatividad, estrategia y resultados que marcan la diferencia.
+                </p>
+                <div class="flex gap-4">
+                    <a class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-zinc-400"
+                        href="#">
+                        <span class="material-symbols-outlined text-lg" data-icon="share">share</span>
+                    </a>
+                    <a class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center text-zinc-400"
+                        href="#">
+                        <span class="material-symbols-outlined text-lg" data-icon="public">public</span>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-headline text-xl text-white mb-8 font-bold">Servicios</h4>
+                <ul class="space-y-4 font-label text-xs uppercase tracking-widest">
+                    <li><a class="text-zinc-500" href="#services">Social Media</a></li>
+                    <li><a class="text-zinc-500" href="#services">Web Development</a></li>
+                    <li><a class="text-zinc-500" href="#services">Digital Ads</a></li>
+                    <li><a class="text-zinc-500" href="#services">UGC Content</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-xl text-white mb-8 font-bold">Navegación</h4>
+                <ul class="space-y-4 font-label text-xs uppercase tracking-widest">
+                    <li><a class="text-zinc-500" href="#services">Servicios</a></li>
+                    <li><a class="text-zinc-500" href="#why-us">¿Por Qué Nosotros?</a></li>
+                    <li><a class="text-zinc-500" href="#process">Proceso</a></li>
+                    <li><a class="text-zinc-500" href="#contact">Contacto</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-headline text-xl text-white mb-8 font-bold">Newsletter</h4>
+                <p class="text-zinc-500 text-sm mb-6">Mantente actualizado con nuestras últimas novedades.</p>
+                <form class="relative">
+                    <input
+                        class="w-full bg-surface-container-highest border-none rounded-full px-6 py-4 text-sm focus:ring-2 focus:ring-[#FFDF39] transition-all"
+                        placeholder="Tu correo electrónico" type="email" />
+                    <button
+                        class="absolute right-2 top-2 w-10 h-10 bg-primary-container rounded-full flex items-center justify-center text-on-primary"
+                        type="submit">
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="px-12 py-8 max-w-[1440px] mx-auto border-t border-zinc-800/30">
+            <p class="text-zinc-600 text-[10px] uppercase tracking-widest text-center">
+                © 2026 Yellow Digital. Todos los derechos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        const heroTL = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+        gsap.set('.hero-char', { y: 100, opacity: 0 });
+        gsap.set('.hero-tagline', { y: 30, opacity: 0 });
+        gsap.set('.hero-description', { y: 30, opacity: 0 });
+        gsap.set('.hero-btn', { y: 30, opacity: 0 });
+        gsap.set('.hero-line-1', { scaleX: 0, transformOrigin: 'left center' });
+        gsap.set('.hero-line-2', { scaleX: 0, transformOrigin: 'right center' });
+        gsap.set('.hero-circle', { scale: 0, opacity: 0 });
+        gsap.set('.hero-shape', { scale: 0, opacity: 0 });
+        gsap.set('.hero-bg', { opacity: 1 });
+
+        heroTL
+            .to('.hero-line-1', {
+                scaleX: 1,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            }, '-=0.9')
+            .to('.hero-line-2', {
+                scaleX: 1,
+                duration: 0.8,
+                ease: 'power2.inOut'
+            }, '-=0.6')
+            .to('.hero-circle', {
+                scale: 2,
+                opacity: 0.3,
+                duration: 1,
+                ease: 'power2.out'
+            }, '-=0.6')
+            // Floating shapes
+            .to('.hero-shape', {
+                scale: 1,
+                opacity: 1,
+                duration: 0.5,
+                stagger: 0.1,
+                ease: 'back.out(1.7)'
+            }, '-=0.6')
+            // Tagline
+            .to('.hero-tagline', {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: 'power2.out'
+            }, '-=0.3')
+            .to('.hero-title-line:first-child .hero-char', {
+                y: 0,
+                opacity: 1,
+                duration: 0.4,
+                stagger: 0.03,
+                ease: 'power2.out'
+            }, '-=0.2')
+            .to('.hero-title-line:last-child .hero-char', {
+                y: 0,
+                opacity: 1,
+                duration: 0.4,
+                stagger: 0.03,
+                ease: 'power2.out'
+            }, '-=0.3')
+            // Description
+            .to('.hero-description', {
+                y: 0,
+                opacity: 1,
+                duration: 0.5,
+                ease: 'power2.out'
+            }, '-=0.1')
+            // Buttons
+            .to('.hero-btn', {
+                y: 0,
+                opacity: 1,
+                duration: 0.4,
+                stagger: 0.1,
+                ease: 'power2.out'
+            }, '-=0.2');
+
+        gsap.to('.hero-bg-img', {
+            yPercent: 15,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero-bg',
+                start: 'top top',
+                end: 'bottom top',
+                scrub: 1
+            }
+        });
+
+        gsap.from('.hero-bg-img', {
+            scale: 1.1,
+            duration: 1.5,
+            ease: 'power2.out'
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    const navbar = document.querySelector('nav');
+                    const navbarHeight = navbar ? navbar.offsetHeight : 0;
+                    
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight - 20;
+                    
+                    gsap.to(window, {
+                        duration: 1.2,
+                        scrollTo: { y: targetPosition, autoKill: false },
+                        ease: 'power3.inOut'
+                    });
+                }
+            });
+        });
+
+        gsap.to('.hero-shape-1', {
+            y: -20,
+            duration: 3,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.hero-shape-2', {
+            y: 15,
+            rotation: 90,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+        gsap.to('.hero-shape-3', {
+            y: -30,
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut'
+        });
+
+        document.querySelectorAll('.hero-btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                gsap.to(btn, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+            });
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, { scale: 1, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        const marqueeTrack = document.querySelector('.marquee-track');
+        let lastScrollY = window.scrollY;
+        let scrollTimeout;
+
+        const statNumbers = document.querySelectorAll('.stat-number');
+
+        statNumbers.forEach(stat => {
+            const target = parseInt(stat.getAttribute('data-target'));
+            
+            gsap.fromTo(stat, 
+                { innerText: 0 },
+                {
+                    innerText: target,
+                    duration: 2,
+                    ease: 'power2.out',
+                    snap: { innerText: 1 },
+                    scrollTrigger: {
+                        trigger: stat,
+                        start: 'top 80%',
+                        once: true
+                    }
+                }
+            );
+        });
+
+        gsap.from('.about-text', {
+            x: -50,
+            opacity: 0,
+            duration: 1,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.about-text',
+                start: 'top 80%',
+                once: true
+            }
+        });
+
+        gsap.from('.stat-item', {
+            y: 30,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.15,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.stat-item',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.from('.team-section', {
+            x: -30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.team-section',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.from('.partners-section', {
+            x: 30,
+            opacity: 0,
+            duration: 0.8,
+            ease: 'power2.out',
+            scrollTrigger: {
+                trigger: '.partners-section',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        const canvas = document.getElementById('cursor-trail');
+        const ctx = canvas.getContext('2d');
+        
+        let width, height;
+        let particles = [];
+        let mouseX = 0, mouseY = 0;
+        let lastMouseX = 0, lastMouseY = 0;
+        
+        function resizeCanvas() {
+            width = window.innerWidth;
+            height = window.innerHeight;
+            canvas.width = width;
+            canvas.height = height;
+        }
+        
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+        
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = (Math.random() - 0.5) * 2;
+                this.speedY = (Math.random() - 0.5) * 2;
+                this.life = 1;
+                this.decay = Math.random() * 0.02 + 0.01;
+                this.hue = Math.random() * 30 + 50;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                this.life -= this.decay;
+                this.size *= 0.98;
+            }
+            
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.life;
+                
+                const gradient = ctx.createRadialGradient(
+                    this.x, this.y, 0,
+                    this.x, this.y, this.size * 3
+                );
+                gradient.addColorStop(0, `hsla(${this.hue}, 100%, 70%, ${this.life})`);
+                gradient.addColorStop(0.5, `hsla(${this.hue}, 100%, 50%, ${this.life * 0.5})`);
+                gradient.addColorStop(1, 'transparent');
+                
+                ctx.fillStyle = gradient;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.fillStyle = `hsla(${this.hue}, 100%, 90%, ${this.life})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                ctx.restore();
+            }
+        }
+        
+        let isMouseMoving = false;
+        let mouseTimeout;
+        
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            isMouseMoving = true;
+            
+            const distance = Math.hypot(mouseX - lastMouseX, mouseY - lastMouseY);
+            const steps = Math.min(distance / 5, 10);
+            
+            for (let i = 0; i < steps; i++) {
+                const t = i / steps;
+                const x = lastMouseX + (mouseX - lastMouseX) * t;
+                const y = lastMouseY + (mouseY - lastMouseY) * t;
+                
+                for (let j = 0; j < 3; j++) {
+                    particles.push(new Particle(
+                        x + (Math.random() - 0.5) * 10,
+                        y + (Math.random() - 0.5) * 10
+                    ));
+                }
+            }
+            
+            lastMouseX = mouseX;
+            lastMouseY = mouseY;
+            
+            clearTimeout(mouseTimeout);
+            mouseTimeout = setTimeout(() => {
+                isMouseMoving = false;
+            }, 100);
+        });
+        
+        function animateTrail() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles = particles.filter(particle => {
+                particle.update();
+                particle.draw();
+                return particle.life > 0;
+            });
+            
+            if (particles.length > 200) {
+                particles = particles.slice(-200);
+            }
+            
+            requestAnimationFrame(animateTrail);
+        }
+        
+        animateTrail();
+
+        const timelineProgress = document.getElementById('timeline-progress');
+        const timelineCards = document.querySelectorAll('.timeline-card');
+        
+        if (timelineProgress && timelineCards.length > 0) {
+            gsap.fromTo(timelineProgress, 
+                { scaleY: 0 },
+                {
+                    scaleY: 1,
+                    ease: 'none',
+                    scrollTrigger: {
+                        trigger: '.timeline-container',
+                        start: 'top 80%',
+                        end: 'bottom 20%',
+                        scrub: 1
+                    }
+                }
+            );
+            
+            timelineCards.forEach((card, index) => {
+                const isLeft = index % 2 === 0;
+                const xStart = isLeft ? -100 : 100;
+                
+                gsap.fromTo(card,
+                    { 
+                        x: xStart, 
+                        opacity: 0 
+                    },
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: 0.8,
+                        ease: 'power2.out',
+                        scrollTrigger: {
+                            trigger: card,
+                            start: 'top 85%',
+                            once: true
+                        },
+                        delay: index * 0.15
+                    }
+                );
+            });
+        }
+
+        gsap.to('.about-text', {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.about-text',
+                start: 'top 80%',
+                once: true
+            }
+        });
+
+        gsap.to('.stat-item', {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.stat-item',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.to('.team-section', {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.team-section',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.to('.partners-section', {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.partners-section',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.to('.service-card', {
+            y: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.service-card',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.to('.why-us-item', {
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.why-us-item',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.to('.why-us-image', {
+            scale: 1,
+            opacity: 1,
+            duration: 1.2,
+            stagger: 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.why-us-image',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        const contactImageWrapper = document.querySelector('.contact-image-wrapper');
+        const contactFormWrapper = document.querySelector('.contact-form-wrapper');
+        
+        if (contactImageWrapper) {
+            gsap.to(contactImageWrapper, {
+                x: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: contactImageWrapper,
+                    start: 'top 80%',
+                    once: true
+                }
+            });
+        }
+
+        if (contactFormWrapper) {
+            gsap.to(contactFormWrapper, {
+                x: 0,
+                opacity: 1,
+                duration: 1.2,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: contactFormWrapper,
+                    start: 'top 80%',
+                    once: true
+                }
+            });
+        }
+
+        gsap.to('.cta-content', {
+            scale: 1,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.cta-content',
+                start: 'top 80%',
+                once: true
+            }
+        });
+
+        gsap.to('footer', {
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: 'footer',
+                start: 'top 90%',
+                once: true
+            }
+        });
+
+        gsap.to('.clients-section', {
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.clients-section',
+                start: 'top 85%',
+                once: true
+            }
+        });
+
+        gsap.to('.infinite-marquee', {
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: '.infinite-marquee',
+                start: 'top 90%',
+                once: true
+            }
+        });
+
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const button = contactForm.querySelector('button[type="submit"]');
+                const originalText = button.innerHTML;
+                
+                button.innerHTML = '<span class="material-symbols-outlined">check</span><span>¡Mensaje Enviado!</span>';
+                button.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('bg-green-600');
+                    contactForm.reset();
+                }, 3000);
+            });
+        }
+
+    </script>
+</body>
+
+</html>
